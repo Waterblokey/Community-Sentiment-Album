@@ -20,7 +20,14 @@ for submission in reddit.subreddit("hiphopheads").hot(limit=None):
     print(submission.created_utc) #Date and time being created
     print(submission.score) # Average Score
     print(submission.upvote_ratio) # Upvote ratio
-    print(submission.url) # Like to the Subreddit
+    print(submission.url) # Link to the Subreddit
+#    headlines.add(submission.title)
     break
+
+headlines = set()
+for submission in reddit.subreddit("hiphopheads").hot(limit=None):
     headlines.add(submission.title)
-print(len(headlines))
+#     print(len(headlines))
+
+hhh_df = pd.DataFrame(headlines)
+hhh_df.head()
